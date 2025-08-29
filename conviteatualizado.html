@@ -269,7 +269,7 @@
     
     <!-- Página de seleção de dia -->
     <div class="container hidden" id="day-selection-page">
-        <h1>Que dia combina mais?</h1>
+        <h1>Quando você prefere?</h1>
         <button class="day-btn" onclick="showOptions('Hoje')">Hoje</button>
         <button class="day-btn" onclick="showOptions('Amanhã')">Amanhã</button>
         <button class="day-btn" onclick="showOptions('Domingo')">Domingo</button>
@@ -279,8 +279,8 @@
     <!-- Página de opções para Hoje -->
     <div class="container hidden" id="options-today-page">
         <h1>Opções para Hoje</h1>
-        <button class="option-btn" onclick="selectOption('Hoje', 'Metrópole')">Metrópole</button>
-        <button class="option-btn" onclick="selectOption('Hoje', 'Pop house')">Pop house</button>
+        <button class="option-btn" onclick="selectOption('Hoje', 'Metrópole - Show focado na Wandinha')">Metrópole</button>
+        <button class="option-btn" onclick="selectOption('Hoje', 'Pop house - Karaokê, já vou avisando que canto mal')">Pop house</button>
         <button class="option-btn" onclick="selectOption('Hoje', 'Outra opção')">Outra opção</button>
         <button class="back-btn" onclick="backToDaySelection()">Voltar</button>
     </div>
@@ -288,7 +288,7 @@
     <!-- Página de opções para Amanhã -->
     <div class="container hidden" id="options-tomorrow-page">
         <h1>Opções para Amanhã</h1>
-        <button class="option-btn" onclick="selectOption('Amanhã', 'Cinema')">Cinema</button>
+        <button class="option-btn" onclick="selectOption('Amanhã', 'Cinema - E vamos traçar o mapa pra ver qual fica no meio do caminho pras duas')">Cinema</button>
         <button class="option-btn" onclick="selectOption('Amanhã', 'Outra opção')">Outra opção</button>
         <button class="back-btn" onclick="backToDaySelection()">Voltar</button>
     </div>
@@ -296,9 +296,9 @@
     <!-- Página de opções para Domingo -->
     <div class="container hidden" id="options-sunday-page">
         <h1>Opções para Domingo</h1>
-        <button class="option-btn" onclick="selectOption('Domingo', 'Assistir jogo do Sport e sofrer em conjunto')">Assistir jogo do Sport e sofrer em conjunto</button>
-        <button class="option-btn" onclick="selectOption('Domingo', 'Cinema')">Cinema</button>
-        <button class="option-btn" onclick="selectOption('Domingo', 'Recife antigo')">Recife antigo</button>
+        <button class="option-btn" onclick="selectOption('Domingo', 'Assistir jogo do Sport e sofrer em conjunto')">Assistir jogo do Sport</button>
+        <button class="option-btn" onclick="selectOption('Domingo', 'Cinema - E vamos traçar o mapa pra ver qual fica no meio do caminho pras duas')">Cinema</button>
+        <button class="option-btn" onclick="selectOption('Domingo', 'Recife antigo - Pensei nele por causa da feirinha que tem nos domingos')">Recife antigo</button>
         <button class="option-btn" onclick="selectOption('Domingo', 'Outra opção')">Outra opção</button>
         <button class="back-btn" onclick="backToDaySelection()">Voltar</button>
     </div>
@@ -321,7 +321,7 @@
     
     <!-- Página Final -->
     <div class="container hidden" id="final-page">
-        <h1>🎉 Que bom! 🎉</h1>
+        <h1>🎉 Uhuu! 🎉</h1>
         <div class="gif-container">
             <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExd3N5d3Z1Z2Z0d2V0aGZ4Z2R5eGZ4Z2J6cWJ6ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0Z极简主义风格，专注于核心功能，避免不必要的复杂性。以下是根据要求修改后的代码：
 
