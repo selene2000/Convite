@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Convite Especial</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Convite para um Date</title>
     <style>
         * {
             margin: 0;
@@ -12,37 +11,35 @@
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-       
+        
         body {
             background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
             min-height: 100vh;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
             padding: 20px;
-            text-align: center;
-            -webkit-tap-highlight-color: transparent;
         }
         
         .container {
             background-color: white;
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            padding: 30px;
-            max-width: 500px;
             width: 100%;
+            max-width: 500px;
+            padding: 30px;
+            text-align: center;
             transition: all 0.3s ease;
         }
         
         h1 {
-            color: #e91e63;
+            color: #e84393;
             margin-bottom: 20px;
-            font-size: 28px;
+            font-size: 24px;
         }
-       
+        
         p {
-            color: #333;
+            color: #636e72;
             margin-bottom: 25px;
             font-size: 18px;
             line-height: 1.5;
@@ -51,8 +48,7 @@
         .buttons {
             display: flex;
             justify-content: center;
-            gap: 20px;
-            margin-top: 20px;
+            gap: 15px;
             flex-wrap: wrap;
         }
         
@@ -61,120 +57,60 @@
             border: none;
             border-radius: 50px;
             font-size: 16px;
-            font-weight: bold;
+            font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            min-width: 120px;
         }
         
         .yes-btn {
-            background-color: #4CAF50;
-            color: white;
+            background-color: #55efc4;
+            color: #2d3436;
         }
         
-        .yes-btn:hover, .yes-btn:active {
-            background-color: #45a049;
-            transform: translateY(-2px);
+        .yes-btn:hover {
+            background-color: #00b894;
+            transform: scale(1.05);
         }
         
         .no-btn {
-            background-color: #f44336;
-            color: white;
+            background-color: #ffeaa7;
+            color: #2d3436;
         }
         
-        .no-btn:hover, .no-btn:active {
-            background-color: #d32f2f;
-            transform: translateY(-2px);
+        .no-btn:hover {
+            background-color: #fdcb6e;
+            transform: scale(1.05);
         }
         
         .option-btn {
-            background-color: #2196F3;
+            background-color: #74b9ff;
             color: white;
+            margin: 8px;
             width: 100%;
-            margin: 10px 0;
-            padding: 15px;
+            text-align: center;
         }
         
-        .option-btn:hover, .option-btn:active {
-            background-color: #0b7dda;
-            transform: translateY(-2px);
+        .option-btn:hover {
+            background-color: #0984e3;
         }
         
         .day-btn {
-            background-color: #9c27b0;
+            background-color: #a29bfe;
             color: white;
-            width: 100%;
-            margin: 10px 0;
+            margin: 15px 0;
             padding: 15px;
+            width: 80%;
+            font-size: 18px;
         }
         
-        .day-btn:hover, .day-btn:active {
-            background-color: #7b1fa2;
-            transform: translateY(-2px);
-        }
-        
-        .back-btn {
-            background-color: #607d8b;
-            color: white;
-            margin-top: 15px;
-        }
-        
-        .image-container {
-            margin: 20px 0;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            max-width: 300px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
-        
-        .gif-container {
-            margin: 20px 0;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            max-width: 300px;
-            margin-left: auto;
-            margin-right: auto;
+        .day-btn:hover {
+            background-color: #6c5ce7;
+            transform: scale(1.05);
         }
         
         .hidden {
             display: none;
-        }
-        
-        .fireworks {
-            position: relative;
-            margin: 20px 0;
-            height: 100px;
-        }
-        
-        .firework {
-            position: absolute;
-            width: 5px;
-            height: 5px;
-            background: #ff0;
-            border-radius: 50%;
-            box-shadow: 0 0 10px #ff0, 0 0 20px #ff0, 0 0 30px #ff0;
-            animation: firework 1s ease-out infinite;
-            top: 50%;
-            left: 50%;
-        }
-        
-        .chosen-option {
-            background-color: #f8f8f8;
-            padding: 15px;
-            border-radius: 10px;
-            margin: 20px 0;
-            font-weight: bold;
-            color: #e91e63;
-            border-left: 4px solid #e91e63;
         }
         
         .sad-face {
@@ -182,18 +118,55 @@
             margin: 20px 0;
         }
         
-        @keyframes firework {
-            0% { transform: translate(0, 0); opacity: 1; }
-            100% { transform: translate(var(--x), var(--y)); opacity: 0; }
+        .fireworks {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
         }
         
-        @media (max-width: 500px) {
+        .celebration {
+            font-size: 50px;
+            margin: 20px 0;
+            animation: pulse 1s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+        
+        .day-options {
+            margin: 20px 0;
+        }
+        
+        .day-title {
+            color: #e84393;
+            margin: 15px 0 10px;
+            font-size: 20px;
+        }
+        
+        .back-btn {
+            background-color: #dfe6e9;
+            color: #2d3436;
+            margin-top: 20px;
+        }
+        
+        .back-btn:hover {
+            background-color: #b2bec3;
+        }
+        
+        @media (max-width: 600px) {
             .container {
                 padding: 20px;
             }
             
             h1 {
-                font-size: 24px;
+                font-size: 20px;
             }
             
             p {
@@ -202,404 +175,198 @@
             
             button {
                 padding: 10px 20px;
+                font-size: 14px;
+                min-width: 100px;
             }
             
-            .buttons {
-                flex-direction: column;
-                gap: 10px;
-            }
-        }
-        
-        @media (min-width: 1024px) {
-            .container {
-                max-width: 600px;
-            }
-            
-            h1 {
-                font-size: 32px;
-            }
-            
-            p {
-                font-size: 20px;
-            }
-            
-            button {
-                padding: 15px 30px;
-                font-size: 18px;
-            }
-        }
-        
-        .confetti {
-            position: fixed;
-            width: 10px;
-            height: 10px;
-            background-color: #f00;
-            animation: confetti-fall 5s linear forwards;
-            z-index: 1000;
-        }
-        
-        @keyframes confetti-fall {
-            0% {
-                transform: translateY(-100px) rotate(0deg);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(100vh) rotate(360deg);
-                opacity: 0;
-            }
-        }
-        
-        .lion-gif {
-            max-width: 100%;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-    </style>
-</head>
-<body>
-    <!-- Página inicial -->
-    <div class="container" id="initial-page">
-        <h1>Convite Especial</h1>
-        <p>Oi, amore! Você está sendo convidada para um date. Se hoje não for a melhor opção, calma.</p>
-        <div class="buttons">
-            <button class="yes-btn" onclick="showDaySelection()">Sim</button>
-            <button class="no-btn" onclick="showConfirmation()">Não</button>
-        </div>
-    </div>
-    
-    <!-- Página de seleção de dia -->
-    <div class="container hidden" id="day-selection-page">
-        <h1>Quando você prefere?</h1>
-        <button class="day-btn" onclick="showOptions('Hoje')">Hoje</button>
-        <button class="day-btn" onclick="showOptions('Amanhã')">Amanhã</button>
-        <button class="day-btn" onclick="showOptions('Domingo')">Domingo</button>
-        <button class="back-btn" onclick="backToInitial()">Voltar</button>
-    </div>
-    
-    <!-- Página de opções para Hoje -->
-    <div class="container hidden" id="options-today-page">
-        <h1>Opções para Hoje</h1>
-        <button class="option-btn" onclick="selectOption('Hoje', 'Metrópole - Show focado na Wandinha')">Metrópole</button>
-        <button class="option-btn" onclick="selectOption('Hoje', 'Pop house - Karaokê, já vou avisando que canto mal')">Pop house</button>
-        <button class="option-btn" onclick="selectOption('Hoje', 'Outra opção')">Outra opção</button>
-        <button class="back-btn" onclick="backToDaySelection()">Voltar</button>
-    </div>
-    
-    <!-- Página de opções para Amanhã -->
-    <div class="container hidden" id="options-tomorrow-page">
-        <h1>Opções para Amanhã</h1>
-        <button class="option-btn" onclick="selectOption('Amanhã', 'Cinema - E vamos traçar o mapa pra ver qual fica no meio do caminho pras duas')">Cinema</button>
-        <button class="option-btn" onclick="selectOption('Amanhã', 'Outra opção')">Outra opção</button>
-        <button class="back-btn" onclick="backToDaySelection()">Voltar</button>
-    </div>
-    
-    <!-- Página de opções para Domingo -->
-    <div class="container hidden" id="options-sunday-page">
-        <h1>Opções para Domingo</h1>
-        <button class="option-btn" onclick="selectOption('Domingo', 'Assistir jogo do Sport e sofrer em conjunto')">Assistir jogo do Sport</button>
-        <button class="option-btn" onclick="selectOption('Domingo', 'Cinema - E vamos traçar o mapa pra ver qual fica no meio do caminho pras duas')">Cinema</button>
-        <button class="option-btn" onclick="selectOption('Domingo', 'Recife antigo - Pensei nele por causa da feirinha que tem nos domingos')">Recife antigo</button>
-        <button class="option-btn" onclick="selectOption('Domingo', 'Outra opção')">Outra opção</button>
-        <button class="back-btn" onclick="backToDaySelection()">Voltar</button>
-    </div>
-    
-    <!-- Página de confirmação para Não -->
-    <div class="container hidden" id="confirmation-page">
-        <h1>Tem certeza?</h1>
-        <div class="buttons">
-            <button class="yes-btn" onclick="showSadMessage()">Sim</button>
-            <button class="no-btn" onclick="backToInitial()">Não</button>
-        </div>
-    </div>
-    
-    <!-- Página de mensagem triste -->
-    <div class="container hidden" id="sad-message-page">
-        <div class="sad-face">😢</div>
-        <h1>Pelo visto a rubro-negra tá com azar no jogo e no amor</h1>
-        <button class="back-btn" onclick="backToInitial()">Voltar</button>
-    </div>
-    
-    <!-- Página Final -->
-    <div class="container hidden" id="final-page">
-        <h1>🎉 Uhuu! 🎉</h1>
-        <div class="gif-container">
-            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExd3N5d3Z1Z2Z0d2V0aGZ4Z2R5eGZ4Z2J6cWJ6ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0ZzZ0Z极简主义风格，专注于核心功能，避免不必要的复杂性。以下是根据要求修改后的代码：
-
-```html
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Convite Especial</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-       
-        body {
-            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            text-align: center;
-        }
-        
-        .container {
-            background-color: white;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            padding: 30px;
-            max-width: 500px;
-            width: 100%;
-        }
-        
-        h1 {
-            color: #e91e63;
-            margin-bottom: 20px;
-        }
-       
-        p {
-            color: #333;
-            margin-bottom: 25px;
-            line-height: 1.5;
-        }
-        
-        .buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 20px;
-            flex-wrap: wrap;
-        }
-        
-        button {
-            padding: 12px 25px;
-            border: none;
-            border-radius: 50px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .yes-btn {
-            background-color: #4CAF50;
-            color: white;
-        }
-        
-        .no-btn {
-            background-color: #f44336;
-            color: white;
-        }
-        
-        .option-btn {
-            background-color: #2196F3;
-            color: white;
-            width: 100%;
-            margin: 10px 0;
-            padding: 15px;
-        }
-        
-        .day-btn {
-            background-color: #9c27b0;
-            color: white;
-            width: 100%;
-            margin: 10px 0;
-            padding: 15px;
-        }
-        
-        .back-btn {
-            background-color: #607d8b;
-            color: white;
-            margin-top: 15px;
-        }
-        
-        .gif-container {
-            margin: 20px 0;
-            border-radius: 15px;
-            overflow: hidden;
-            max-width: 300px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .hidden {
-            display: none;
-        }
-        
-        .chosen-option {
-            background-color: #f8f8f8;
-            padding: 15px;
-            border-radius: 10px;
-            margin: 20px 0;
-            font-weight: bold;
-            color: #e91e63;
-        }
-        
-        .sad-face {
-            font-size: 60px;
-            margin: 20px 0;
-        }
-        
-        @media (max-width: 500px) {
-            .container {
-                padding: 20px;
-            }
-            
-            .buttons {
-                flex-direction: column;
+            .day-btn {
+                width: 100%;
+                font-size: 16px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Página inicial -->
-    <div class="container" id="initial-page">
-        <h1>Convite Especial</h1>
-        <p>Oi, amore! Você está sendo convidada para um date. Se hoje não for a melhor opção, calma.</p>
+    <!-- Página 1 - Inicial -->
+    <div class="container" id="page1">
+        <h1>Oi, amore!</h1>
+        <p>Você está sendo convidada para um date. Se hoje não for a melhor opção, calma.</p>
         <div class="buttons">
-            <button class="yes-btn" onclick="showDaySelection()">Sim</button>
-            <button class="no-btn" onclick="showConfirmation()">Não</button>
+            <button class="yes-btn" onclick="showPage('page2')">Sim</button>
+            <button class="no-btn" onclick="showPage('page3')">Não</button>
         </div>
     </div>
     
-    <!-- Página de seleção de dia -->
-    <div class="container hidden" id="day-selection-page">
-        <h1>Quando você prefere?</h1>
-        <button class="day-btn" onclick="showOptions('Hoje')">Hoje</button>
-        <button class="day-btn" onclick="showOptions('Amanhã')">Amanhã</button>
-        <button class="day-btn" onclick="showOptions('Domingo')">Domingo</button>
-        <button class="back-btn" onclick="backToInitial()">Voltar</button>
+    <!-- Página 2 - Escolha do Dia -->
+    <div class="container hidden" id="page2">
+        <h1>Amo, vamos qual dia:</h1>
+        
+        <button class="day-btn" onclick="showPage('pageHoje')">Hoje</button>
+        <button class="day-btn" onclick="showPage('pageAmanha')">Amanhã</button>
+        <button class="day-btn" onclick="showPage('pageDomingo')">Domingo</button>
+        
+        <div class="buttons" style="margin-top: 20px;">
+            <button class="back-btn" onclick="showPage('page1')">Voltar</button>
+        </div>
     </div>
     
-    <!-- Página de opções para Hoje -->
-    <div class="container hidden" id="options-today-page">
+    <!-- Página Hoje -->
+    <div class="container hidden" id="pageHoje">
         <h1>Opções para Hoje</h1>
-        <button class="option-btn" onclick="selectOption('Hoje', 'Metrópole - Show focado na Wandinha')">Metrópole</button>
-        <button class="option-btn" onclick="selectOption('Hoje', 'Pop house - Karaokê, já vou avisando que canto mal')">Pop house</button>
-        <button class="option-btn" onclick="selectOption('Hoje', 'Outra opção')">Outra opção</button>
-        <button class="back-btn" onclick="backToDaySelection()">Voltar</button>
+        
+        <div class="day-options">
+            <button class="option-btn" onclick="selectOption('Hoje', 'Metrópole - com show da Wandinha e tudo')">Metrópole</button>
+            <button class="option-btn" onclick="selectOption('Hoje', 'Pop house - karaokê, já vou avisando que não sei cantar')">Pop house</button>
+            <button class="option-btn" onclick="selectOption('Hoje', 'Paju bar')">Paju bar</button>
+            <button class="option-btn" onclick="selectOption('Hoje', 'Outra opção')">Outra opção</button>
+        </div>
+        
+        <div class="buttons" style="margin-top: 20px;">
+            <button class="back-btn" onclick="showPage('page2')">Voltar</button>
+        </div>
     </div>
     
-    <!-- Página de opções para Amanhã -->
-    <div class="container hidden" id="options-tomorrow-page">
+    <!-- Página Amanhã -->
+    <div class="container hidden" id="pageAmanha">
         <h1>Opções para Amanhã</h1>
-        <button class="option-btn" onclick="selectOption('Amanhã', 'Cinema - E vamos traçar o mapa pra ver qual fica no meio do caminho pras duas')">Cinema</button>
-        <button class="option-btn" onclick="selectOption('Amanhã', 'Outra opção')">Outra opção</button>
-        <button class="back-btn" onclick="backToDaySelection()">Voltar</button>
+        
+        <div class="day-options">
+            <button class="option-btn" onclick="selectOption('Amanhã', 'Cinema - tem um filme que parece interessante: A hora do mal')">Cinema</button>
+            <button class="option-btn" onclick="selectOption('Amanhã', 'Paju bar - A metro vai tá com dark room, acho meio insalubre')">Paju bar</button>
+            <button class="option-btn" onclick="selectOption('Amanhã', 'Outra opção')">Outra opção</button>
+        </div>
+        
+        <div class="buttons" style="margin-top: 20px;">
+            <button class="back-btn" onclick="showPage('page2')">Voltar</button>
+        </div>
     </div>
     
-    <!-- Página de opções para Domingo -->
-    <div class="container hidden" id="options-sunday-page">
+    <!-- Página Domingo -->
+    <div class="container hidden" id="pageDomingo">
         <h1>Opções para Domingo</h1>
-        <button class="option-btn" onclick="selectOption('Domingo', 'Assistir jogo do Sport e sofrer em conjunto')">Assistir jogo do Sport</button>
-        <button class="option-btn" onclick="selectOption('Domingo', 'Cinema - E vamos traçar o mapa pra ver qual fica no meio do caminho pras duas')">Cinema</button>
-        <button class="option-btn" onclick="selectOption('Domingo', 'Recife antigo - Pensei nele por causa da feirinha que tem nos domingos')">Recife antigo</button>
-        <button class="option-btn" onclick="selectOption('Domingo', 'Outra opção')">Outra opção</button>
-        <button class="back-btn" onclick="backToDaySelection()">Voltar</button>
+        
+        <div class="day-options">
+            <button class="option-btn" onclick="selectOption('Domingo', 'Assistir jogo do Sport e sofrer em conjunto')">Assistir jogo do Sport</button>
+            <button class="option-btn" onclick="selectOption('Domingo', 'Cinema - tem um filme que parece interessante: A hora do mal')">Cinema</button>
+            <button class="option-btn" onclick="selectOption('Domingo', 'Recife antigo - dia de domingo tem feirinha')">Recife antigo</button>
+            <button class="option-btn" onclick="selectOption('Domingo', 'Outra opção')">Outra opção</button>
+        </div>
+        
+        <div class="buttons" style="margin-top: 20px;">
+            <button class="back-btn" onclick="showPage('page2')">Voltar</button>
+        </div>
     </div>
     
-    <!-- Página de confirmação para Não -->
-    <div class="container hidden" id="confirmation-page">
+    <!-- Página 3 - Confirmação do Não -->
+    <div class="container hidden" id="page3">
         <h1>Tem certeza?</h1>
         <div class="buttons">
             <button class="yes-btn" onclick="showSadMessage()">Sim</button>
-            <button class="no-btn" onclick="backToInitial()">Não</button>
+            <button class="no-btn" onclick="showPage('page1')">Não</button>
         </div>
     </div>
     
-    <!-- Página de mensagem triste -->
-    <div class="container hidden" id="sad-message-page">
+    <!-- Página 4 - Mensagem Triste -->
+    <div class="container hidden" id="page4">
         <div class="sad-face">😢</div>
-        <h1>Pelo visto a rubro-negra tá com azar no jogo e no amor</h1>
-        <button class="back-btn" onclick="backToInitial()">Voltar</button>
+        <p>Pelo visto a rubro-negra tá com azar no jogo e no amor</p>
+        <div class="buttons" style="margin-top: 20px;">
+            <button class="no-btn" onclick="showPage('page1')">Voltar</button>
+        </div>
     </div>
     
-    <!-- Página Final -->
-    <div class="container hidden" id="final-page">
-        <h1>🎉 Uhuu! 🎉</h1>
-        <div class="gif-container">
-            <img src="https://media.giphy.com/media/3o7abKhOpu0NwenH3O/giphy.gif" alt="Leão fofinho feliz" class="lion-gif">
+    <!-- Página 5 - Celebração -->
+    <div class="container hidden" id="page5">
+        <div class="celebration">🎉</div>
+        <h1>Para confirmar, basta mandar o print dessa página no whatsapp!</h1>
+        <p>IOS tentou nos sabotar, mas vamos marcar esse date</p>
+        <p id="selected-option"></p>
+        <p>Dizem que ariana é intensa</p>
+        <div class="buttons" style="margin-top: 20px;">
+            <button class="yes-btn" onclick="showPage('page1')">Voltar ao Início</button>
         </div>
-        
-        <div class="chosen-option" id="chosen-option-text">
-            Você escolheu: <span id="day-value"></span> - <span id="option-value"></span>
-        </div>
-        
-        <p id="final-message">Te espero então! 😊</p>
-        <button class="back-btn" onclick="backToInitial()">Voltar ao início</button>
     </div>
+    
+    <div class="fireworks" id="fireworks"></div>
 
     <script>
-        // Variáveis para armazenar a opção escolhida
-        let chosenDay = '';
-        let chosenOption = '';
+        // Variáveis para armazenar a seleção
+        let selectedDay = '';
+        let selectedOption = '';
         
-        // Funções para navegar entre as páginas
-        function hideAllPages() {
-            document.querySelectorAll('.container').forEach(page => {
+        // Função para mostrar uma página específica e esconder as outras
+        function showPage(pageId) {
+            // Esconder todas as páginas
+            const pages = document.querySelectorAll('.container');
+            pages.forEach(page => {
                 page.classList.add('hidden');
             });
+            
+            // Mostrar a página solicitada
+            document.getElementById(pageId).classList.remove('hidden');
         }
         
-        function showPage(id) {
-            hideAllPages();
-            document.getElementById(id).classList.remove('hidden');
-        }
-        
-        function showDaySelection() {
-            showPage('day-selection-page');
-        }
-        
-        function showConfirmation() {
-            showPage('confirmation-page');
-        }
-        
+        // Função para mostrar a mensagem triste
         function showSadMessage() {
-            showPage('sad-message-page');
+            showPage('page4');
         }
         
-        function showOptions(day) {
-            if (day === 'Hoje') {
-                showPage('options-today-page');
-            } else if (day === 'Amanhã') {
-                showPage('options-tomorrow-page');
-            } else if (day === 'Domingo') {
-                showPage('options-sunday-page');
-            }
-        }
-        
+        // Função para selecionar uma opção e mostrar a página de celebração
         function selectOption(day, option) {
-            chosenDay = day;
-            chosenOption = option;
+            selectedDay = day;
+            selectedOption = option;
             
-            // Atualizar o texto com a opção escolhida
-            document.getElementById('day-value').textContent = day;
-            document.getElementById('option-value').textContent = option;
+            // Atualizar o texto na página de celebração
+            document.getElementById('selected-option').textContent = `${day}: ${option}`;
             
-            // Alterar mensagem final se for "Outra opção"
-            if (option === 'Outra opção') {
-                document.getElementById('final-message').textContent = 'Diga sua ideia, confio no bom gosto de uma ariana';
-            } else {
-                document.getElementById('final-message').textContent = 'Te espero então! 😊';
+            // Mostrar fogos de artifício
+            createFireworks();
+            
+            // Mostrar a página de celebração
+            showPage('page5');
+        }
+        
+        // Função para criar efeito de fogos de artifício
+        function createFireworks() {
+            const fireworksContainer = document.getElementById('fireworks');
+            fireworksContainer.innerHTML = '';
+            
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const firework = document.createElement('div');
+                    firework.style.position = 'absolute';
+                    firework.style.width = '5px';
+                    firework.style.height = '5px';
+                    firework.style.borderRadius = '50%';
+                    firework.style.background = getRandomColor();
+                    firework.style.boxShadow = '0 0 10px ' + getRandomColor();
+                    firework.style.left = Math.random() * 100 + 'vw';
+                    firework.style.top = Math.random() * 100 + 'vh';
+                    firework.style.zIndex = '-1';
+                    
+                    fireworksContainer.appendChild(firework);
+                    
+                    // Animação
+                    firework.animate([
+                        { transform: 'translateY(0) scale(1)', opacity: 1 },
+                        { transform: `translateY(${Math.random() * 100 - 200}px) translateX(${Math.random() * 100 - 50}px) scale(2)`, opacity: 0 }
+                    ], {
+                        duration: 1000 + Math.random() * 2000,
+                        easing: 'cubic-bezier(0.1, 0.3, 0.2, 1)'
+                    });
+                    
+                    // Remover após animação
+                    setTimeout(() => {
+                        firework.remove();
+                    }, 3000);
+                }, i * 100);
             }
-            
-            showPage('final-page');
         }
         
-        function backToInitial() {
-            showPage('initial-page');
-        }
-        
-        function backToDaySelection() {
-            showPage('day-selection-page');
+        // Função para gerar cores aleatórias
+        function getRandomColor() {
+            const colors = ['#ff5252', '#ff4081', '#e040fb', '#7c4dff', '#536dfe', '#448aff', '#40c4ff', '#18ffff', '#64ffda', '#69f0ae', '#b2ff59', '#eeff41', '#ffff00', '#ffd740', '#ffab40', '#ff6e40'];
+            return colors[Math.floor(Math.random() * colors.length)];
         }
     </script>
 </body>
