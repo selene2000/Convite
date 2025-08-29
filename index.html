@@ -102,6 +102,9 @@
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            max-width: 300px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         img {
@@ -128,6 +131,18 @@
             border-radius: 50%;
             box-shadow: 0 0 10px #ff0, 0 0 20px #ff0, 0 0 30px #ff0;
             animation: firework 1s ease-out infinite;
+            top: 50%;
+            left: 50%;
+        }
+        
+        .chosen-option {
+            background-color: #f8f8f8;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-weight: bold;
+            color: #e91e63;
+            border-left: 4px solid #e91e63;
         }
         
         @keyframes firework {
@@ -163,7 +178,7 @@
     <!-- Página inicial -->
     <div class="container" id="initial-page">
         <h1>Convite Especial</h1>
-        <p>Oi, amore! Você está sendo convidada para um date. Vamos?</p>
+        <p>Oi, amore! Você está sendo convidada para um date <br> Se não puder hoje, o convite segue válido pra amanhã rsrs</p>
         <div class="buttons">
             <button class="yes-btn" onclick="showYesPage()">Sim</button>
             <button class="no-btn" onclick="showNoPage()">Não</button>
@@ -172,7 +187,7 @@
     
     <!-- Página Não -->
     <div class="container hidden" id="no-page">
-        <h1>Poxa</h1>
+        <h1>Poxa, pensei que ia perder só no jogo, mas pelo visto vai ser no amor também</h1>
         <div class="image-container">
             <img src="https://gerenciador.popload.com.br/wp-content/uploads/2017/03/lordedisco.jpg" alt="Lorde triste">
         </div>
@@ -186,19 +201,26 @@
             <img src="https://pbs.twimg.com/media/GF12my2XYAAD-2y?format=jpg&name=large" alt="Lorde feliz">
         </div>
         <p>Escolha uma opção:</p>
-        <button class="option-btn" onclick="showFinalPage()">a- Metro</button>
-        <button class="option-btn" onclick="showFinalPage()">b- Cineminha</button>
-        <button class="option-btn" onclick="showFinalPage()">c- Passeio pelo Antigo</button>
-        <button class="option-btn" onclick="showFinalPage()">d- Outra opção</button>
+        <button class="option-btn" onclick="showFinalPage('Metrópole (tinha um sonho de ser saudável)')">a- Metro (fã da Wandinha?)</button>
+        <button class="option-btn" onclick="showFinalPage('Cineminha (e vamos de escolher filme/cinema)')">b- Cinema (gostas de terror?)</button>
+        <button class="option-btn" onclick="showFinalPage('Antigo (um rolê mais cultural)')">c- Recife antigo (acho mais legal no domingo à tarde)</button>
+        <button class="option-btn" onclick="showFinalPage('Outra opção (confio no bom gosto de uma ariana)')">d- Outra opção (surpreenda)</button>
     </div>
     
     <!-- Página Final -->
     <div class="container hidden" id="final-page">
-        <h1>Amoo, esse fim de semana?</h1>
+        <h1>Ótimo. Se não puder hoje, temos o fim de semana
+        </h1>
         <div class="image-container">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTw1Rkw_cEG5tq662dNOaOaWJKg7tWjLVvTexsrGW7hI92pCg179nw8Gna4eJj6sankS8Y&usqp=CAU" alt="Rodrigo Faro apontando">
         </div>
-        <p>Me avisa pelo whatsapp qual foi a opção escolhida rsrs</p>
+        
+        <!-- Elemento para mostrar a opção escolhida -->
+        <div class="chosen-option" id="chosen-option-text">
+            Você escolheu: <span id="option-value"></span>
+        </div>
+        
+        <p>Tira um print e me manda pelo whatsapp rsrs</p>
         <div class="fireworks" id="fireworks-container"></div>
         <button class="yes-btn" onclick="backToInitial()">Voltar ao início</button>
     </div>
@@ -232,8 +254,7 @@
             showPage('final-page');
             
             // Atualizar o texto com a opção escolhida
-            document.getElementById('chosen-option-text').textContent = 
-                `Você escolheu: ${option}`;
+            document.getElementById('option-value').textContent = option;
                 
             createFireworks();
         }
